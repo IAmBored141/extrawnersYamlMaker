@@ -6,7 +6,7 @@ def DO(cases,results):
         os.remove(f"output/{SETUP.PUZZLE_ID}.extrawners.yaml")
     with open(f"output/{SETUP.PUZZLE_ID}.extrawners.yaml", "a") as f:
         # part 1: the multi output
-        f.write(f"- Type: \"MultiOutput\"\n  SinkAny: true\n  CustomName: {SETUP.OUTPUT_NAME}\n  CustomDes: {SETUP.OUTPUT_DESC}\n  WrongMolCrashesSim: true\n  OkOutputs:\n")
+        f.write(f"- Type: \"MultiOutput\"\n  SinkAny: true\n  CustomName: {SETUP.OUTPUT_NAME}\n  CustomDesc: {SETUP.OUTPUT_DESC}\n  WrongMolCrashesSim: true\n  OkOutputs:\n")
         for result in results:
             f.write("    - Atoms:\n")
             for i in range(SETUP.REPEATS_PER_CASE):

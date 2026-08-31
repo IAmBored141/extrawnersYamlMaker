@@ -13,3 +13,6 @@ PUZZLE_ID = "[ID]" # puzzle idea here
 
 CATALYST_IDS = ["fire", "air", "earth"] # the list of atoms to make catalysts for
 # you must directly supply the atom ID, we cant import ATOMS since ATOMS is importing here
+
+ATOM_PREFIX = "salt"
+ATOM_APPEND = "none" #atoms to put at start/end, none means nothing
