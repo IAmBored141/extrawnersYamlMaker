@@ -28,10 +28,14 @@ for i in range(SETUP.CASES_TO_ADD):
         if tryCase in cases and SETUP.BLOCK_REPEAT_CASES:
             pass # it's already there
         else:
-            tryCase.insert(SETUP.ATOM_PREFIX, 0)
-            tryCase.append(SETUP.ATOM_APPEND, 0)
-            tryResult.insert(SETUP.ATOM_PREFIX, 0)
-            tryResult.append(SETUP.ATOM_APPEND, 0)
+            if SETUP.ATOM_PREFIX != "none":
+                tryCase.insert(0, SETUP.ATOM_PREFIX)
+                tryResult.insert(0, SETUP.ATOM_PREFIX)
+                SETUP.CASE_LENGTH += 1
+            if SETUP.ATOM_APPEND != "none":
+                tryCase.append(SETUP.ATOM_APPEND)
+                tryResult.append(SETUP.ATOM_APPEND)
+                SETUP.CASE_LENGTH += 1
             cases.append(tryCase)
             results.append(tryResult)
             currentCaseCalculated = True

@@ -9,14 +9,14 @@ def DO(cases,results):
         f.write(f"- Type: \"MultiOutput\"\n  SinkAny: true\n  CustomName: {SETUP.OUTPUT_NAME}\n  CustomDesc: {SETUP.OUTPUT_DESC}\n  WrongMolCrashesSim: true\n  OkOutputs:\n")
         for result in results:
             f.write("    - Atoms:\n")
-            for i in range(SETUP.REPEATS_PER_CASE):
+            for i in range(SETUP.CASE_LENGTH):
                 f.write(f"      - AtomType: {result[i]}\n")
                 f.write(f"        Position:\n          Pos: {i},0\n")
-            if SETUP.REPEATS_PER_CASE == 1:
+            if SETUP.CASE_LENGTH == 1:
                 f.write("      Bonds: []\n")
             else:
                 f.write("      Bonds:\n")
-                for i in range(SETUP.REPEATS_PER_CASE - 1):
+                for i in range(SETUP.CASE_LENGTH - 1):
                     f.write(f"      - A:\n          Pos: {i},0\n")
                     f.write(f"        B:\n          Pos: {i+1},0\n")
                     f.write("        BondTypes:\n        - standard\n")
@@ -26,15 +26,15 @@ def DO(cases,results):
             f.write("    - OutputGlyphIndex: 0\n")
             f.write(f"      OutputMoleculeIndex: {j}\n")
             f.write("      Molecules:\n")
-            for i in range(SETUP.REPEATS_PER_CASE):
+            for i in range(SETUP.CASE_LENGTH):
                 f.write("        - Atoms:\n")
                 f.write(f"          - AtomType: {result[i]}\n")
                 f.write(f"            Position:\n              Pos: {i},0\n")
-            if SETUP.REPEATS_PER_CASE == 1:
+            if SETUP.CASE_LENGTH == 1:
                 f.write("          Bonds: []\n")
             else:
                 f.write("          Bonds:\n")
-                for i in range(SETUP.REPEATS_PER_CASE - 1):
+                for i in range(SETUP.CASE_LENGTH - 1):
                     f.write(f"          - A:\n              Pos: {i},0\n")
                     f.write(f"            B:\n              Pos: {i+1},0\n")
                     f.write("            BondTypes:\n            - standard\n")
@@ -42,14 +42,14 @@ def DO(cases,results):
         f.write("  RandomBag:\n")
         for case in cases:
             f.write("    - Atoms:\n")
-            for i in range(SETUP.REPEATS_PER_CASE):
+            for i in range(SETUP.CASE_LENGTH):
                 f.write(f"      - AtomType: {case[i]}\n")
                 f.write(f"        Position:\n          Pos: {i},0\n")
-            if SETUP.REPEATS_PER_CASE == 1:
+            if SETUP.CASE_LENGTH == 1:
                 f.write("      Bonds: []\n")
             else:
                 f.write("      Bonds:\n")
-                for i in range(SETUP.REPEATS_PER_CASE - 1):
+                for i in range(SETUP.CASE_LENGTH - 1):
                     f.write(f"      - A:\n          Pos: {i},0\n")
                     f.write(f"        B:\n          Pos: {i+1},0\n")
                     f.write("        BondTypes:\n        - standard\n")

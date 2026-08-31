@@ -1,9 +1,9 @@
 FIRE_WATER_BOOL = False # should fire/water be used for true/false instead of vitae
 
-REPEATS_PER_CASE = 4 # how many times to add atom
+REPEATS_PER_CASE = 4 # how many times to add atom in a single case
 CASES_TO_ADD = 4 # how many cases to calculate
 BLOCK_REPEAT_CASES = True # if test cases can have duplicates
-
+CASE_LENGTH = REPEATS_PER_CASE
 OUTPUT_NAME = "Output"
 OUTPUT_DESC = "Put a description here."
 INPUT_NAME = "Input"
