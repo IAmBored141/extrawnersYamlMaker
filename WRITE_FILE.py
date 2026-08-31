@@ -9,32 +9,32 @@ def DO(cases,results):
         f.write(f"- Type: \"MultiOutput\"\n  SinkAny: true\n  CustomName: {SETUP.OUTPUT_NAME}\n  CustomDesc: {SETUP.OUTPUT_DESC}\n  WrongMolCrashesSim: true\n  OkOutputs:\n")
         for result in results:
             f.write("    - Atoms:\n")
-            for i in range(SETUP.CASE_LENGTH):
+            for i in range(SETUP.RESULT_LENGTH):
                 f.write(f"      - AtomType: {result[i]}\n")
                 f.write(f"        Position:\n          Pos: {i},0\n")
-            if SETUP.CASE_LENGTH == 1:
+            if SETUP.RESULT_LENGTH == 1:
                 f.write("      Bonds: []\n")
             else:
                 f.write("      Bonds:\n")
-                for i in range(SETUP.CASE_LENGTH - 1):
+                for i in range(SETUP.RESULT_LENGTH - 1):
                     f.write(f"      - A:\n          Pos: {i},0\n")
                     f.write(f"        B:\n          Pos: {i+1},0\n")
                     f.write("        BondTypes:\n        - standard\n")
         # part 2A: the input's required outputs
         f.write(f"- Type: \"RandomInputRule\"\n  CustomName: {SETUP.INPUT_NAME}\n  CustomDesc: {SETUP.INPUT_DESC}\n  DependentOutputs:\n")
-        for j in range(SETUP.CASES_TO_ADD):
+        for j in range(SETUP.RESULT_LENGTH):
             f.write("    - OutputGlyphIndex: 0\n")
             f.write(f"      OutputMoleculeIndex: {j}\n")
             f.write("      Molecules:\n")
             f.write("        - Atoms:\n")
-            for i in range(SETUP.CASE_LENGTH):
+            for i in range(SETUP.RESULT_LENGTH):
                 f.write(f"          - AtomType: {results[j][i]}\n")
                 f.write(f"            Position:\n              Pos: {i},0\n")
-            if SETUP.CASE_LENGTH == 1:
+            if SETUP.RESULT_LENGTH == 1:
                 f.write("          Bonds: []\n")
             else:
                 f.write("          Bonds:\n")
-                for i in range(SETUP.CASE_LENGTH - 1):
+                for i in range(SETUP.RESULT_LENGTH - 1):
                     f.write(f"          - A:\n              Pos: {i},0\n")
                     f.write(f"            B:\n              Pos: {i+1},0\n")
                     f.write("            BondTypes:\n            - standard\n")

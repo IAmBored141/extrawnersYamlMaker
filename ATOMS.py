@@ -27,6 +27,11 @@ GOLD = Atom("gold",6,True,False)
 VITAE = Atom("vitae",True,False,False)
 MORS = Atom("mors",False,False,False)
 
+# modded atoms
+# vaca
+VACA = Atom("Vaca:vaca",0,True,False)
+
+
 # for encoding inputs/outputs if needed
 SUCCESS = GOLD
 FAILURE = LEAD
@@ -58,7 +63,7 @@ def GET(value,getCardinal):
                     return EARTH
                 case _:
                     print("ERROR: desired cardinal doesnt exist")
-                    return SALT
+                    return MORS
         else:
             match value:
                 case 6:
@@ -73,10 +78,11 @@ def GET(value,getCardinal):
                     return TIN
                 case 1:
                     return LEAD
-                # case 0 would be Vaca
+                case 0:
+                    return VACA
                 case _:
                     print("ERROR: desired metal doesnt exist")
-                    return LEAD
+                    return MORS
 
 def TO_ID(atomList):
     outputList = []

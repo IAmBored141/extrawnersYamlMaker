@@ -10,10 +10,11 @@ cases = [] # do not touch
 results = [] # do not touch
 
 def Computation(Atom): # type the code here
-    if Atom == ATOMS.FIRE:
-        return ATOMS.WATER
-    else:
-        return ATOMS.FIRE
+    numFire = 0
+    for a in Atom:
+        if a == ATOMS.FIRE:
+            numFire += 1
+    return ATOMS.GET(numFire,False)
 
 print("Time to compute!")
 for i in range(SETUP.CASES_TO_ADD):
@@ -24,7 +25,10 @@ for i in range(SETUP.CASES_TO_ADD):
         for j in range(SETUP.REPEATS_PER_CASE):
             tryAtom = random.choice(atomsPool)
             tryCase.append(tryAtom)
-            tryResult.append(Computation(tryAtom))
+            if not SETUP.COMPUTE_ENTIRE_CASE:
+                tryResult.append(Computation(tryAtom))
+            elif j == (SETUP.REPEATS_PER_CASE - 1):
+                tryResult.append(Computation(tryCase))
         tryCase = ATOMS.TO_ID(tryCase)
         tryResult = ATOMS.TO_ID(tryResult)
         if tryCase in cases and SETUP.BLOCK_REPEAT_CASES:
@@ -43,6 +47,10 @@ if SETUP.ATOM_PREFIX != "none":
     SETUP.CASE_LENGTH += 1
 if SETUP.ATOM_APPEND != "none":
     SETUP.CASE_LENGTH += 1
+if SETUP.RESULT_LENGTH_OVERRIDE != -1:
+    SETUP.RESULT_LENGTH = SETUP.RESULT_LENGTH_OVERRIDE
+else:
+    SETUP.RESULT_LENGTH = SETUP.CASE_LENGTH
 
 print(cases)
 print(results)
