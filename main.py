@@ -11,9 +11,9 @@ results = [] # do not touch
 
 def Computation(Atom): # type the code here
     if Atom == ATOMS.FIRE:
-        return ATOMS.EARTH
+        return ATOMS.WATER
     else:
-        return ATOMS.AIR
+        return ATOMS.FIRE
 
 print("Time to compute!")
 for i in range(SETUP.CASES_TO_ADD):

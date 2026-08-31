@@ -26,8 +26,8 @@ def DO(cases,results):
             f.write("    - OutputGlyphIndex: 0\n")
             f.write(f"      OutputMoleculeIndex: {j}\n")
             f.write("      Molecules:\n")
+            f.write("        - Atoms:\n")
             for i in range(SETUP.CASE_LENGTH):
-                f.write("        - Atoms:\n")
                 f.write(f"          - AtomType: {result[i]}\n")
                 f.write(f"            Position:\n              Pos: {i},0\n")
             if SETUP.CASE_LENGTH == 1:
