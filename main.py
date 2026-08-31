@@ -3,6 +3,8 @@ import ATOMS
 import WRITE_FILE
 import random
 
+from SETUP import CASE_LENGTH
+
 atomsPool = [ATOMS.FIRE,ATOMS.WATER] # put valid atoms here
 cases = [] # do not touch
 results = [] # do not touch
@@ -31,15 +33,18 @@ for i in range(SETUP.CASES_TO_ADD):
             if SETUP.ATOM_PREFIX != "none":
                 tryCase.insert(0, SETUP.ATOM_PREFIX)
                 tryResult.insert(0, SETUP.ATOM_PREFIX)
-                SETUP.CASE_LENGTH += 1
             if SETUP.ATOM_APPEND != "none":
                 tryCase.append(SETUP.ATOM_APPEND)
                 tryResult.append(SETUP.ATOM_APPEND)
-                SETUP.CASE_LENGTH += 1
             cases.append(tryCase)
             results.append(tryResult)
             currentCaseCalculated = True
+if SETUP.ATOM_PREFIX != "none":
+    SETUP.CASE_LENGTH += 1
+if SETUP.ATOM_APPEND != "none":
+    SETUP.CASE_LENGTH += 1
 
 print(cases)
 print(results)
+print(SETUP.CASE_LENGTH)
 WRITE_FILE.DO(cases,results)
