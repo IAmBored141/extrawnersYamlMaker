@@ -28,7 +28,7 @@ def DO(cases,results):
             f.write("      Molecules:\n")
             f.write("        - Atoms:\n")
             for i in range(SETUP.CASE_LENGTH):
-                f.write(f"          - AtomType: {result[i]}\n")
+                f.write(f"          - AtomType: {results[j][i]}\n")
                 f.write(f"            Position:\n              Pos: {i},0\n")
             if SETUP.CASE_LENGTH == 1:
                 f.write("          Bonds: []\n")
