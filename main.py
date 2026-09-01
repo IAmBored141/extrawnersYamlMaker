@@ -12,7 +12,7 @@ results = [] # do not touch
 def Computation(Atom): # type the code here
     numFire = 0
     for a in Atom:
-        if a == ATOMS.FIRE:
+        if a == ATOMS.WATER:
             numFire += 1
     return ATOMS.GET(numFire,False)
 

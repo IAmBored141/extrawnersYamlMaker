@@ -8,11 +8,11 @@ RESULT_LENGTH_OVERRIDE = 1
 COMPUTE_ENTIRE_CASE = True # whether to compute entire case at once or no
 
 OUTPUT_NAME = "Output"
-OUTPUT_DESC = "Invert Fire in the input to Water, and vice-versa. The Salt is to show which end is the start."
+OUTPUT_DESC = "Count the number of Water atoms in the input, and return the metal atom with the same metallicity. As in, if there are 4 Water atoms in the input, return Copper."
 INPUT_NAME = "Input"
-INPUT_DESC = "A line of 4 atoms of Fire or Water, randomly chosen, with Salt at the start."
+INPUT_DESC = "A line of 6 atoms of Fire or Water, randomly chosen."
 
-PUZZLE_ID = "invert" # puzzle ID here
+PUZZLE_ID = "count" # puzzle ID here
 
 CATALYST_IDS = ["fire", "water"] # the list of atoms to make catalysts for
 # you must directly supply the atom ID, we cant import ATOMS since ATOMS is importing here

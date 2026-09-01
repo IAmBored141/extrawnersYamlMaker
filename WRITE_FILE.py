@@ -22,7 +22,7 @@ def DO(cases,results):
                     f.write("        BondTypes:\n        - standard\n")
         # part 2A: the input's required outputs
         f.write(f"- Type: \"RandomInputRule\"\n  CustomName: {SETUP.INPUT_NAME}\n  CustomDesc: {SETUP.INPUT_DESC}\n  DependentOutputs:\n")
-        for j in range(SETUP.RESULT_LENGTH):
+        for j in range(SETUP.CASES_TO_ADD):
             f.write("    - OutputGlyphIndex: 0\n")
             f.write(f"      OutputMoleculeIndex: {j}\n")
             f.write("      Molecules:\n")
