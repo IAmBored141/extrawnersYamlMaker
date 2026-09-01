@@ -54,7 +54,7 @@ def DO(cases,results):
                     f.write(f"        B:\n          Pos: {i+1},0\n")
                     f.write("        BondTypes:\n        - standard\n")
         # part 3: catalysts
-        if SETUP.CASES_TO_ADD: # empty list
+        if SETUP.CATALYST_IDS: # not empty list
             for catalyst in SETUP.CATALYST_IDS:
                 f.write(f"- Type: \"Spawner\"\n  CustomName: Catalyst - Elemental {catalyst.title()}\n  CustomDesc: A single atom of Elemental {catalyst.title()}.\n")
                 f.write("  SpawnAtBeginning:\n")
