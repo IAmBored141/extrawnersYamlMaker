@@ -5,16 +5,16 @@ import random
 
 from SETUP import CASE_LENGTH
 
-atomsPool = [ATOMS.FIRE,ATOMS.WATER] # put valid atoms here
+atomsPool = [ATOMS.FIRE,ATOMS.WATER,ATOMS.WATER,ATOMS.WATER,ATOMS.WATER,ATOMS.WATER] # put valid atoms here
 cases = [] # do not touch
 results = [] # do not touch
 
 def Computation(Atom): # type the code here
-    numFire = 0
+    hasFire = False
     for a in Atom:
-        if a == ATOMS.WATER:
-            numFire += 1
-    return ATOMS.GET(numFire,False)
+        if a == ATOMS.FIRE:
+            hasFire = True
+    return ATOMS.GET(hasFire,False)
 
 print("Time to compute!")
 for i in range(SETUP.CASES_TO_ADD):
@@ -26,9 +26,15 @@ for i in range(SETUP.CASES_TO_ADD):
             tryAtom = random.choice(atomsPool)
             tryCase.append(tryAtom)
             if not SETUP.COMPUTE_ENTIRE_CASE:
-                tryResult.append(Computation(tryAtom))
+                if type(Computation(tryAtom)) == list:
+                    tryResult += Computation(tryAtom)
+                else:
+                    tryResult.append(Computation(tryAtom))
             elif j == (SETUP.REPEATS_PER_CASE - 1):
-                tryResult.append(Computation(tryCase))
+                if type(Computation(tryCase)) == list:
+                    tryResult += Computation(tryCase)
+                else:
+                    tryResult.append(Computation(tryCase))
         tryCase = ATOMS.TO_ID(tryCase)
         tryResult = ATOMS.TO_ID(tryResult)
         if tryCase in cases and SETUP.BLOCK_REPEAT_CASES:
